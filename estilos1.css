@@ -1,0 +1,582 @@
+/* Stylesheet / CSS */
+/* CSS Reset - Do not edit this line */ 
+body {line-height:1.5;background:#AAD31B;font-family:Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;}
+
+
+/* General Styles
+----------------------------------------------------------------------------------------------------*/
+
+body {
+	background-image: url("images/capa.png") ;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right bottom;
+    background-size: 30%;
+	font-family: Arial, Helvetica, sans-serif;
+	/*border: 3px solid grey;*/
+	font-size: 13px;
+	padding: 150px;
+	font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+	/*border:3px solid #919191;*/
+	
+	
+}
+
+
+#left{
+	float:left;
+    width:33.3%;
+    height: 240px;
+}
+
+#leftnologin{
+	float:left;
+    width:20%;
+    height: 240px;
+}
+
+#right{
+	float:right;
+    width:33.3%;
+    height: 240px;
+}
+#rightnologin{
+	float:right;
+    width:20%;
+    height: 240px;
+}
+
+#center{
+	display: inline-block;
+    margin:0 auto;
+}
+
+#centernologin{
+	display: inline-block;
+    margin:0 auto;
+	top: 50%;
+	position: fixed;
+	left:50%;
+	max-width: 800px;
+	width: 80%;
+	transform: translate(-50%, -50%);
+	min-height: 480px;
+	min-height: 50%;
+}
+
+#wrapper {	
+	padding: 70px 70px 70px 0px;
+	position: absolute;
+text-align:center;
+width:100%;
+}
+
+#wrappertop {
+	width: 350px;
+	background:url(images/wrapper_top.png) no-repeat;
+	height:22px;
+}
+
+#wrappertopnologin {
+	
+	background:#F7F7F7;
+	border-top: 2px solid #C0C0C0;
+	border-left: 2px solid #C0C0C0;
+	border-right: 2px solid #C0C0C0;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	height:18px;
+}
+
+#wrappermiddle {
+	width: 350px;
+	background:url(images/wrapper_middle.png) repeat-y;
+	height:240px;
+	opacity: 0.9;
+}
+
+#wrappermiddlenologin {
+
+	background:#F7F7F7;
+	height: 550px;
+	text-align: justify;
+	padding: 40px;
+	padding-top: 50px;
+	-webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: solid 2px #789B2F;
+    padding-bottom: 20px;
+}
+
+#wrappermiddlenologin p, h1{
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#wrappermiddlenologin h1{
+	font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 26.3999996185303px;
+}
+
+#wrappermiddlenologin p{
+	font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+#wrappermiddlenologin a{
+	font-size: 16px;
+}
+
+#wrapperbottom {
+	width: 350px;
+	background:url(images/wrapper_bottom.png) no-repeat;
+	height:22px;
+}
+
+#wrapperbottomnologin {
+	
+	background:#F7F7F7;
+	border-bottom: 2px solid #C0C0C0;
+	border-left: 2px solid #C0C0C0;
+	border-right: 2px solid #C0C0C0;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	height:18px;
+}
+
+.input{
+	float: left;
+}
+
+#submitcsv{
+	margin-left: 10px;
+}
+
+#submitTxt1{
+	margin-left: 10px;
+}
+
+#submitshape{
+	margin-left: 10px;
+}
+
+#submitTxt2{
+	margin-left: 10px;
+}
+
+#buttonwelcome{
+	text-align: center;
+	width: 70px;
+	padding: 10px 10px;
+    background: #B9D778;
+    position: relative;
+    color: #FFF;
+	text-decoration: none;
+	float:right;
+	-webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+   	border: solid 2px #789B2F;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+#buttonwelcome:hover, #buttonwelcome:focus{
+	background: #356094;
+    border: solid 2px #2A4E77;
+    text-decoration: none;
+}
+
+#buttonwelcome:active{
+	.button-link:active {
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    background: #B9D778;
+    border: solid 2px #789B2F;
+}
+
+#center h2 {
+	margin-left:20px;
+	font-size:20px;
+	font-weight:bold;
+	font-family:calibri;
+	text-transform:uppercase;
+	position:absolute;
+
+	text-shadow: #fff 2px 2px 2px;
+}
+
+#username_input {
+	margin-left:25px;
+	position:absolute;
+	width:300;
+	height:50px;
+}
+
+#username_inputleft {
+	float:left;
+	background:url(images/input_left.png) no-repeat;
+	width:12px;
+	height:50px;
+}
+
+#username_inputmiddle {
+	float:left;
+	background:url(images/input_middle.png) repeat-x;
+	width:276px;
+	height:50px;
+}
+
+#username_inputright {
+	float:left;
+	background:url(images/input_right.png) no-repeat;
+	width:12px;
+	height:50px;
+}
+
+#username_error{
+	display:none;
+
+}
+
+#url{
+	display:block;
+	width:276px;
+	height:45px;
+	background:transparent;
+	border:0;
+	color:#bdbdbd;
+	font-family:helvetica, sans-serif;
+	font-size:14px;
+	padding-left:20px;
+}
+
+#url_user {
+	position:absolute;
+	display:block;
+	margin-top:-28px;
+	float:left;
+	padding-right:10px;
+}
+
+#password_input {
+	margin-left:25px;
+	position:absolute;
+	width:300;
+	height:50px;
+	margin-top:100px;
+}
+
+#password_inputleft {
+	float:left;
+	background:url(images/input_left.png) no-repeat;
+	width:12px;
+	height:50px;
+}
+
+#password_inputmiddle {
+	float:left;
+	background:url(images/input_middle.png) repeat-x;
+	width:276px;
+	height:50px;
+}
+
+#password_inputright {
+	float:left;
+	background:url(images/input_right.png) no-repeat;
+	width:12px;
+	height:50px;
+}
+
+#url_password {
+	display:block;
+	position:absolute;
+	margin-top:-32px;
+	float:left;
+	margin-left:4px;
+}
+
+#submit{
+	float:left;
+	position:relative;
+	padding:0;
+	margin-top:160px;
+	margin-left:25px;
+	width:300px;
+	height:40px;
+	border:0;
+}
+
+#submit1 {
+	position:absolute;
+	z-index: 10;
+	border:0;
+}
+
+#submit2 {
+	position:absolute;
+	margin-top:0px;
+	border:0;
+}
+
+#error{
+	display: none;
+	color: red;
+	background-color: #ac375d;
+	border: 1px solid red;
+	border-radius: 5px;
+}
+
+#success{
+	display: none;
+	color: green;
+	background-color: #AAD31B;;
+	border: 1px solid green;
+	border-radius: 5px;
+}
+
+#links_left{
+	float:left;
+	position:relative;
+	padding-top:5px;
+	margin-left:25px;
+}
+
+#links_left a{
+	color:#bbb;
+	font-size:11px;
+	text-decoration:none;
+	transition: color 0.5s linear;
+	-moz-transition: color 0.5s linear;
+	-webkit-transition: color 0.5s linear;
+	-o-transition: color 0.5s linear;
+}
+
+#links_left a:hover{
+	color:#292929;
+}
+
+#links_right{
+	float:right;
+	position:relative;
+	padding-top:5px;
+	margin-right:25px;
+}
+
+#links_right a{
+	color:#bbb;
+	font-size:11px;
+	text-decoration:none;
+	transition: color 0.5s linear;
+	-moz-transition: color 0.5s linear;
+	-webkit-transition: color 0.5s linear;
+	-o-transition: color 0.5s linear;
+}
+
+#links_right a:hover{
+	color:#292929;
+}
+
+#powered{
+	float:right;
+	position:relative;
+	padding-top:3px;
+	margin-right:5px;
+	font-size:11px;
+}
+
+#powered a{
+	color:#aaa;
+	font-size:11px;
+	text-decoration:none;
+	transition: color 0.5s linear;
+	-moz-transition: color 0.5s linear;
+	-webkit-transition: color 0.5s linear;
+	-o-transition: color 0.5s linear;
+}
+
+#powered a:hover{
+	color:#292929;
+}
+
+/* _____________________________________________________________________*/
+
+.form-4 {
+    /* Size and position */
+    width: 300px;
+    margin: 60px auto 30px;
+    padding: 10px;
+    position: relative;
+
+    /* Font styles */
+    font-family: 'Raleway', 'Lato', Arial, sans-serif;
+    color: white;
+    text-shadow: 0 2px 1px rgba(0,0,0,0.3);
+}
+
+.form-4 h1 {
+    font-size: 22px;
+    padding-bottom: 20px;
+}
+
+.form-4 input[type=text],
+.form-4 input[type=password] {
+    /* Size and position */
+    width: 100%;
+    padding: 8px 4px 8px 10px;
+    margin-bottom: 15px;
+
+    /* Styles */
+    border: 1px solid #4e3043; /* Fallback */
+    border: 1px solid rgba(78,48,67, 0.8);
+    background: rgba(0,0,0,0.15);
+    border-radius: 2px;
+    box-shadow: 
+        0 1px 0 rgba(255,255,255,0.2), 
+        inset 0 1px 1px rgba(0,0,0,0.1);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+
+    /* Font styles */
+    font-family: 'Raleway', 'Lato', Arial, sans-serif;
+    color: #fff;
+    font-size: 13px;
+}
+
+/* Placeholder style (from http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css) */
+
+.form-4 input::-webkit-input-placeholder {
+    color: rgba(37,21,26,0.5);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.form-4 input:-moz-placeholder {
+    color: rgba(37,21,26,0.5);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.form-4 input:-ms-input-placeholder {
+    color: rgba(37,21,26,0.5);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.form-4 input[type=text]:hover,
+.form-4 input[type=password]:hover {
+    border-color: #333;
+}
+
+.form-4 input[type=text]:focus,
+.form-4 input[type=password]:focus,
+.form-4 input[type=submit]:focus {
+    box-shadow: 
+        0 1px 0 rgba(255,255,255,0.2), 
+        inset 0 1px 1px rgba(0,0,0,0.1),
+        0 0 0 3px rgba(255,255,255,0.15);
+    outline: none;
+}
+
+/* Fallback */
+.no-boxshadow .form-4 input[type=text]:focus,
+.no-boxshadow .form-4 input[type=password]:focus {
+    outline: 1px solid white;
+}
+
+.form-4 input[type=submit] {
+    /* Size and position */
+    width: 100%;
+    padding: 8px 5px;
+    
+    /* Styles */
+    background: #634056;
+    background: -moz-linear-gradient(rgba(99,64,86,0.5), rgba(76,49,65,0.7));
+    background: -ms-linear-gradient(rgba(99,64,86,0.5), rgba(76,49,65,0.7));
+    background: -o-linear-gradient(rgba(99,64,86,0.5), rgba(76,49,65,0.7));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(99,64,86,0.5)), to(rgba(76,49,65,0.7)));
+    background: -webkit-linear-gradient(rgba(99,64,86,0.5), rgba(76,49,65,0.7));
+    background: linear-gradient(rgba(99,64,86,0.5), rgba(76,49,65,0.7));    
+    border-radius: 5px;
+    border: 1px solid #4e3043;
+    box-shadow: inset 0 1px rgba(255,255,255,0.4), 0 2px 1px rgba(0,0,0,0.1);
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+
+    /* Font styles */
+    color: white;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Raleway', 'Lato', Arial, sans-serif;
+}
+
+.form-4 input[type=submit]:hover {
+    box-shadow: 
+        inset 0 1px rgba(255,255,255,0.2), 
+        inset 0 20px 30px rgba(99,64,86,0.5);
+}
+
+/* Fallback */
+.no-boxshadow .form-4 input[type=submit]:hover {
+    background: #594642;
+}
+
+.form-4 label {
+    display: none;
+    padding: 0 0 5px 2px;
+    cursor: pointer;
+}
+
+.form-4 label:hover ~ input {
+    border-color: #333;
+}
+
+.no-placeholder .form-4 label {
+    display: block;
+}
+
+#insuccesscsv{
+	background-color: red;
+}
+
+
+img{
+	margin-left: 15px;
+}
+
+a{
+	margin-left: 15px;
+}
+
+label{
+	margin-left: 10px;
+}
+
+#logout{
+	margin-left: 15px;
+}

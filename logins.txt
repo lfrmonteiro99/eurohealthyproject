@@ -1,0 +1,21 @@
+Paula Santana;paulasantana.eurohealthy@gmail.com;Portugal;Lisbon;psantana
+Carme Borrell;cborrell@aspb.cat;Spain;Barcelona;cborrell
+Sotiris Vardoulakis;sotiris.vardoulakis@phe.gov.uk;United Kingdom;London;svardoulakis
+Stephane Rican;srican@u-paris10.fr;France;Paris;srican
+Carlos Bana;carlosbana@tecnico.ulisboa.pt;Portugal;;cbana
+Thomas Krafft;thomas.krafft@maastrichtuniversity.nl;Netherlands;;tkrafft
+Hynek Pikhart;h.pikhart@ucl.ac.uk;United Kingdom;London;hpikhart
+Bo Burstrom;bo.burstrom@ki.se;Sweden;Stokholm;bburstrom
+Jürgen Schweikart;schweikart@beuth-hochschule.de;Germany;Berlin;jschweikart
+Dagmar Dzúrová;dagmar.dzurova@natur.cuni.cz;Czech Republic;Prague;ddzurova
+Klea Katsouyanni;kkatsouy@med.uoa.gr;Greece;Athens;kkatsouyanni
+Giuseppe Costa;giuseppe.costa@epi.piemonte.it;Italy;Turin;gcosta
+Michal Tkac;michal.tkac@euke.sk;Slovakia;;mtkac
+Hadewijch Vandenheede;hvdheede@vub.ac.be;Belgium;Brussels;hvandenheede
+Luis Monteiro;lfrmonteiro99@gmail.com;Portugal;Lisbon;13423139
+Claudia Costa;claudiampcosta@gmail.com;Portugal;Lisbon;ccosta
+Aida Isabel Tavares;aitavar@gmail.com;Portugal;Lisbon;atavares
+Ângela Freitas;angelafreitas30@gmail.com;Portugal;Lisbon;afreitas
+Ricardo Almendra;ricardoalmendra85@gmail.com;Portugal;Lisbon;ralmendra
+Adriana Loureiro;adrianalour@gmail.com;Portugal;Lisbon;aloureiro
+Iwa Stefanik;iwaeurohealthy@gmail.com;Portugal;Lisbon;istefanik

@@ -1,0 +1,332 @@
+<?php
+
+session_start();
+
+//sleep(3);
+
+$fileName = $_FILES["image"]["name"];
+$filetmp = $_FILES["image"]["tmp_name"];
+$ext = explode('.', $_FILES["image"]['name']);
+$ext = end($ext);
+
+$accept=0;
+
+if($ext === 'csv'){
+
+	$accept = check_csv($_FILES["image"]["name"]);
+	
+	
+	if($accept === 1){
+		if(move_uploaded_file($filetmp, "uploads/" . $_SESSION['regiao'] ."/" . $fileName)){
+			$_SESSION['csv'] = "uploads/" . $_SESSION['regiao'] ."/" . $fileName;
+			//report();
+			//header("Location: report.php")
+			$_SESSION['alfanumerico'] = 1;
+			echo "isto foi feito csv";
+			exit();
+			
+		}else{
+			$_SESSION['csv'] = 0;
+			echo "isto não foi feito1";
+			exit();
+		}
+
+	}else{
+		$_SESSION['csv'] = 0;
+		echo "isto não foi feito2";
+		exit();
+	}
+
+}elseif($ext === 'zip'){
+	
+	
+		
+	$accepted = checkZip($filetmp);
+	if($accepted === 1){
+		$ano = $_POST['anos'];
+		if($ano>=2001 && $ano<=2015){
+			if(move_uploaded_file($filetmp, 'uploads/' . $_SESSION['regiao'] . '/'. $ano . '/' . $fileName)){
+				echo "isto foi feito shape";
+				exit();
+			}else{
+				echo "isto não foi feito anos";
+				exit();
+			}
+		}else{
+			if(move_uploaded_file($filetmp, 'uploads/' . $_SESSION['regiao'] . '/' . $fileName)){
+				$_SESSION['shape'] = 'uploads/' . $_SESSION['regiao'] . '/' . $fileName;
+				$_SESSION['meta'] = 1;
+				echo "isto foi feito shape";
+				exit();
+			}else{
+				echo "isto não foi feito mudar a pasta";
+				exit();
+			}
+		}
+	}else{
+		echo "isto não foi feito nao foi aceite";
+				exit();
+	}
+	
+	
+		
+		exit();
+	
+
+}else{
+	
+	if(move_uploaded_file($filetmp, "uploads/" . $fileName)){
+			$_SESSION['other'] = $fileName;
+			echo "isto foi feito";
+			exit();
+			
+		}else{
+			echo "isto não foi feito";
+			exit();
+		}
+}
+
+function checkZip($filepath){
+	$tres_ficheiros = 0;
+	$accepted = 1;
+	//$zip = new > ZipArchive;
+	$zip = zip_open($filepath);
+	$file_count     = 0;
+	$forder_count = 0;
+	echo "entrou na funcao ";
+	echo $filepath . " ";
+	if($zip){
+											
+		echo "entrou no if ";
+		$allowedFiles = array('dbf', 'shp', 'shx', 'prj');
+		
+		 
+		 while ($zip_entry = zip_read($zip)){
+		 	echo "entrou no while ";
+			if (is_file(zip_entry_name($zip_entry))) {
+				echo "entrou no if ";
+				$file_count++;
+
+			}
+			
+			$path_parts = pathinfo(zip_entry_name($zip_entry));
+			
+			$ext1 = strtolower(trim(isset ($path_parts['extension']) ? $path_parts['extension'] : ''));
+			
+			echo $ext1;
+			
+			if(in_array($ext1, $allowedFiles)){
+				echo "entrou no segundo if ";
+				$tres_ficheiros++;
+			}
+			
+		}
+		
+		if($tres_ficheiros < 3){
+			echo "está no 3 if ";
+			$accepted = 0;
+		}
+		else{
+			echo "nao entrou no 3 if ";
+			$accepted = 1;
+		}
+											
+											
+	}else{
+		echo "nao entrou em nenhum ";
+	}
+	
+	return $accepted;
+}
+
+function getFloat($str) {
+  if(strstr($str, ",")) {
+    $str = str_replace(".", "", $str); // replace dots (thousand seps) with blancs
+    $str = str_replace(",", ".", $str); // replace ',' with '.'
+  }
+
+  return $str;
+ 
+}
+
+function verifica_indicadores_valor($string){
+
+    if(is_numeric(getFloat($string)) ) {
+        return 1;
+    }
+
+    elseif(empty($string)){
+    	return 1;
+    }
+    else{
+    	return 0;
+    }
+}
+
+
+function retorna_numero_titulo_indicador_2($indicador, $indicadores){
+
+	for($i=0; $i<sizeof($indicadores); $i++){
+		if($indicadores[$i] === $indicador){
+			return 1;
+		}
+	}
+}
+
+function retorna_numero_titulo_indicador_3($format, $indicadores){
+    if(in_array($format, $indicadores)){
+            return 1;
+        }
+        
+        return 0;
+}
+
+function verifica_indicadores($string){
+    
+  
+    $indicadores = file("indicadores.txt", FILE_IGNORE_NEW_LINES);
+    $indicador = explode("_", $string);
+	
+    if(sizeof($indicador) === 1){
+        $result = retorna_numero_titulo_indicador_2($indicador, $indicadores);
+		return 1;
+    }
+    
+    if(sizeof($indicador) === 2){
+        $format = $indicador[0] . '_' . $indicador[1];
+       
+        return retorna_numero_titulo_indicador_3($format, $indicadores);
+        
+    }
+    
+    return 0;
+}
+
+function verifica_nutsCode($s){
+    
+    
+    $nuts_code = file("nuts_code.txt", FILE_IGNORE_NEW_LINES);
+    
+    if(in_array($s, $nuts_code)){
+        return 1;
+    }
+}
+
+function verifica_4_celulas($array){
+	if( $array[0][0] === "NUTS_CODE" && $array[0][1] === "NUTS_LABEL" && $array[0][2] === "COUNTRY_CODE" && $array[0][3] === "YEAR" ){
+        return 1;
+    }else{
+
+    return 0;
+    }
+	
+	return 0;
+}
+
+function verifica_linha($linha, $array){
+    
+    $accept=1;
+    if(verifica_4_celulas($array) === 0){
+        return 0;
+    }
+    
+    for($j=0; $j<count($array[$linha])-1; $j++){
+       
+        if($j === 0 and $linha>0){
+            $accept = verifica_nutsCode($array[$linha][$j]);
+        }
+        
+        if($j>3 and $linha===0){
+            $accept = verifica_indicadores($array[$linha][$j]);
+            
+        }
+        
+        if($j>3 and $linha>0){
+            $accept = verifica_indicadores_valor($array[$linha][$j]);
+        }
+      
+        if($accept === 0){
+            return 0;
+        }
+    }
+    
+    return 1;
+    
+}
+
+function check_csv($file){
+    
+    $rows = array();
+    $i = 0;
+	$efe = file($_FILES["image"]["tmp_name"]);
+
+	foreach( $efe as $line){
+			
+			
+		$rows[] = str_getcsv($line, ";");
+	  
+		$accept = verifica_linha($i, $rows);
+
+		if($accept === 0){
+			return 0;
+		}
+		
+		$i++;
+			
+			
+	}
+			
+	return 1;
+}
+
+echo "isto não foi feitosdcwec";
+
+function report(){
+
+	$ficheiro_para_report = "uploads/Lisboa/rbrtb.csv";
+	$report1 = 'uploads/report.csv';
+
+	$file = fopen('uploads/report1.csv', 'w'); 
+
+	$ficheiro = file($report1,  FILE_IGNORE_NEW_LINES);
+
+	$anos = array(); // anos preenchidos
+	$to_csv = array();
+
+	$rows1 = array();
+
+	foreach(file($ficheiro_para_report, FILE_IGNORE_NEW_LINES) as $line){
+		
+		$rows1[] = str_getcsv($line, ';');
+	}
+
+	$rows = file($ficheiro_para_report, FILE_IGNORE_NEW_LINES);
+	$array_anos_todos = array();
+	//$anos[0] = $rows1[1][3];
+	for($i=1, $j=1; $i<count($rows1);$j++, $i++){
+		array_push($array_anos_todos, $rows1[$i][3]);
+		if(!in_array($rows1[$i][3], $anos)){
+			array_push($anos, $rows1[$i][3]);
+		}
+	}
+
+	$count = array_count_values($array_anos_todos);
+
+	$csvline = 0;
+	$csvcolumn = 0;
+	sort($anos);
+
+
+	$header=array(array());
+	$header[$csvline][0] = 'Metropolitan Area';
+	$header[$csvline++][1] = " ";
+	$header[$csvline][0] = 'Date';
+	$header[$csvline++][1] = date('F jS\, Y');
+	$header[$csvline][0] = 'Who Made The Upload';
+	$header[$csvline++][1] = " ";
+	$header[$csvline][0] = 'Number of Indicators With Data';
+	$header[$csvline++][0] = " ";
+	}
+
+ ?>
+
